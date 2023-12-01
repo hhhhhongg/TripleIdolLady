@@ -37,16 +37,33 @@ public class Enemy : MonoBehaviour
     {
         if (collider.gameObject.tag == "Bullet")
         {
-            if (_damage < _hp)
+            if (type == 1)
             {
-                _damage += 2f;
-                Destroy(collider.gameObject);
-                gameObject.transform.Find("Enemy1Sprite/Canvas/Front").transform.localScale = new Vector3(_damage / _hp, 1.0f, 1.0f);
+                if (_damage < _hp)
+                {
+                    _damage += 2f;
+                    Destroy(collider.gameObject);
+                    gameObject.transform.Find("Enemy1Sprite/Canvas/Front").transform.localScale = new Vector3(_damage / _hp, 1.0f, 1.0f);
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
             }
-            else
+            else if (type == 2)
             {
-                Destroy(gameObject);
+                if (_damage < _hp)
+                {
+                    _damage += 2f;
+                    Destroy(collider.gameObject);
+                    gameObject.transform.Find("Enemy2Sprite/Canvas/Front").transform.localScale = new Vector3(_damage / _hp, 1.0f, 1.0f);
+                }
+                else
+                {
+                    Destroy(gameObject);
+                }
             }
+            
         }
     }
 }
