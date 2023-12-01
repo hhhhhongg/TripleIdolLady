@@ -7,20 +7,19 @@ public class AimRotation : MonoBehaviour
     [SerializeField] private SpriteRenderer _armRenderer;
     [SerializeField] private Transform _armPivot;
 
-    [SerializeField] private SpriteRenderer _playerRenderer;
+    [SerializeField] private SpriteRenderer _playerRenderer;    
 
     private PlayerController _controller;
     private void Awake()
     {
         _controller = GetComponent<PlayerController>();
     }
-
-    // Start is called before the first frame update
+    
     void Start()
     {
-        _controller.OnLookEvent += OnaAim;
+        _controller.OnLookEvent += OnAim;
     }
-    public void OnaAim(Vector2 newAimDirection)
+    public void OnAim(Vector2 newAimDirection)
     {
         RotateArm(newAimDirection);
     }
@@ -32,6 +31,6 @@ public class AimRotation : MonoBehaviour
         _armRenderer.flipY = Mathf.Abs(rotZ) > 90f;
         _playerRenderer.flipX = _armRenderer.flipY;
 
-        _armPivot.rotation = Quaternion.Euler(0, 0, rotZ);
+        _armPivot.rotation = Quaternion.Euler(0, 0, rotZ);        
     }    
 }
