@@ -27,5 +27,9 @@ public class PlayerInputController : PlayerController
             CallLookEvent(newAim);
         }
     }
-    
+    public void OnFire(InputValue value)
+    {        
+        IsAttacking = value.isPressed;        
+    }
+
 }
