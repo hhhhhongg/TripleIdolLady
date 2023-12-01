@@ -33,5 +33,5 @@ public class AimRotation : MonoBehaviour
         _playerRenderer.flipX = _armRenderer.flipY;
 
         _armPivot.rotation = Quaternion.Euler(0, 0, rotZ);
-    }    
+    }
 }
