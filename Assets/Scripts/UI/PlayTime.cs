@@ -8,17 +8,27 @@ public class PlayTime : MonoBehaviour
 {
     public Text playTimeText;
     public static float playTime;
+    private int minutes;
+    private int seconds;
 
-    void Update()
+    public void Update()
     {
         playTime += Time.deltaTime;
         UpdatePlayTimeText();
     }
 
-    void UpdatePlayTimeText()
+    public void UpdatePlayTimeText()
     {
-        int minutes = (int)(playTime / 60);
-        int seconds = (int)(playTime % 60);
+        minutes = (int)(playTime / 60);
+        seconds = (int)(playTime % 60);
         playTimeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+    }
+    public int GetMinutes()
+    {
+        return minutes;
+    }
+    public int GetSeconds()
+    {
+        return seconds;
     }
 }
