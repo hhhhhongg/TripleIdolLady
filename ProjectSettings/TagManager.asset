@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bullet
+  - BossBullet
+  - Enemy
+  - BorderBullet
+  - Bullet1
+  - Bullet2
+  - Bullet3
   layers:
   - Default
   - TransparentFX
