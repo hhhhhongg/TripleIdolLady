@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startObject: {fileID: 2574597032410665351, guid: 3f0ba13e5b070d54da73924f4efa8bf0, type: 3}
-  _PlayerView: {fileID: 5524942594601196982, guid: 33a3f44d2118fd847b88fdf7723cd008, type: 3}
+  _PlayerView: {fileID: 7522888731137063620, guid: 33a3f44d2118fd847b88fdf7723cd008, type: 3}
 --- !u!4 &1476765124
 Transform:
   m_ObjectHideFlags: 0
@@ -167,7 +167,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1616959551
 GameObject:
@@ -327,5 +327,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

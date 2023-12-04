@@ -1,25 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 
 public class RayCastTest : MonoBehaviour
 {
-    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-    RaycastHit hit;
+    Camera cam;
+    private Animator animator;
+    int playerNum;
+    int[] playerNumList =new int[] {1,2,3,4,5};
+    public GameObject[] gameObjects;
 
+    private void Awake()
+    {
+        cam = GetComponent<Camera>();
+    }
     private void Update()
     {
-        
+        SelectPlayer();
     }
-    public void raycost() 
+    public void SelectPlayer()
     {
-        Debug.Log(hit.transform.gameObject);
-
-        if (Physics.Raycast(ray, out hit))
+        if (Input.GetMouseButtonDown(0))
         {
-            if (hit.transform.gameObject.tag == "player") 
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
             {
-                //애니메이션
+                playerNum = hit.transform.GetComponent<PlayerNum>().SelectNum;
+                foreach (var p in playerNumList)
+                {
+                    animator = gameObjects[p - 1].GetComponent<Animator>();
+                    playerNum = int.Parse(hit.transform.name.Substring(hit.transform.name.Length - 1));
+                    animator.SetBool("Iswalk", playerNum == p);
+
+                    if (playerNum == p)
+                    {
+                        PlayerPrefs.SetInt("PlayerSelect", p);
+                        int a = PlayerPrefs.GetInt("PlayerSelect");
+                    }
+                }
             }
         }
     }
