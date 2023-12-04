@@ -6,30 +6,35 @@ public class Enemy : MonoBehaviour
 {
     private float _hp;
     private float _damage = 0f;
+    private Transform _player;
     public int type;
+    public float speed = 5f;
 
     void Start()
     {
-        // 랜덤한 좌표 가져오기
-        float x = Random.Range(-4f, 4f);
-        float y = 0f;
-
-        // 몬스터의 타입이 1일때 체력 10f
+        // 몬스터의 타입이 1일때 체력 12f, 스피드 2f
         if (type == 1)
         {
             _hp = 12f;
+            speed = 2f;
         }
-        // 몬스터의 타입이 2일때 체력 20f
+        // 몬스터의 타입이 2일때 체력 24f, 스피드 1f
         else if (type == 2)
         {
             _hp = 24f;
+            speed = 1f;
         }
-        transform.position = new Vector3(x, y, 0);
+        // 플레이어 오브젝트를 찾아서 변수에 할당
+        _player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        // 랜덤한 좌표 가져오기
+        SpawnOutsideScreen();
     }
 
     void Update()
     {
-        // transform.position += new Vector3(0, -0.05f, 0);
+        Vector3 direction = (_player.position - transform.position).normalized;
+        transform.Translate(direction * speed * Time.deltaTime);
     }
 
     // Bullet과 Enemy가 부딪혔을때 발생하는 일들
@@ -46,6 +51,14 @@ public class Enemy : MonoBehaviour
         else if (collider.gameObject.tag == "Bullet3")
         {
             TakeDamage(collider, 4);
+        }
+
+        if (collider.gameObject.tag == ("Player"))
+        {
+            // 플레이어에게 데미지 입히기
+
+            // 적 오브젝트 파괴
+            Destroy(gameObject);
         }
     }
     private void TakeDamage(Collider2D collider, float _bulletDamage)
@@ -76,5 +89,26 @@ public class Enemy : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    void SpawnOutsideScreen()
+    {
+        // 카메라의 월드 좌표를 스크린 좌표로 변환
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+
+        // 화면의 가로와 세로 크기를 가져옴
+        float screenWidth = Screen.width;
+        float screenHeight = Screen.height;
+
+        // 랜덤한 방향을 결정
+        float randomDirection = Random.Range(0f, 360f);
+
+        // 랜덤한 위치를 화면 바깥으로 설정
+        float x = Mathf.Cos(randomDirection * Mathf.Deg2Rad) * (screenWidth + 5f);
+        float y = Mathf.Sin(randomDirection * Mathf.Deg2Rad) * (screenHeight + 5f);
+
+        // 스크린 좌표를 다시 월드 좌표로 변환
+        Vector3 spawnPosition = Camera.main.ScreenToWorldPoint(new Vector3(x, y, screenPos.z));
+        transform.position = new Vector3(spawnPosition.x, spawnPosition.y, 0f);
     }
 }

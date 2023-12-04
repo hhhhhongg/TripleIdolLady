@@ -426,5 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 197d9492afb7cfe4e950f6903af05793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletObj1: {fileID: 8573547826573358493, guid: c29b1d02ef1b5dc49a7ceaa4004d9077, type: 3}
+  enemyName: B
+  health: 5000
+  BulletObj1: {fileID: 7412472266016699254, guid: 20a9a46ea62d7ad499bef7d2e4ab644a, type: 3}
   BulletObj2: {fileID: 7412472266016699254, guid: 2ff8f56e95ad3ee4da3ab294506db163, type: 3}
