@@ -248,9 +248,10 @@ GameObject:
   - component: {fileID: 2486386334594422616}
   - component: {fileID: 4043110229440381624}
   - component: {fileID: 8579648156742197303}
+  - component: {fileID: 3580309245850638005}
   m_Layer: 0
   m_Name: Player5
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -270,7 +271,7 @@ Transform:
   - {fileID: 6237962735589132035}
   - {fileID: 5622443521771739801}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5456877339520726790
 MonoBehaviour:
@@ -397,3 +398,38 @@ MonoBehaviour:
   _bulletSpawnPosition: {fileID: 3986140642161871625}
   _prefabBullet: {fileID: 4683988071921399058, guid: 68ae6be9438d04d4d8416479a0cfc9fa, type: 3}
   _bulletRenderer: {fileID: 7845172884496964211, guid: 68ae6be9438d04d4d8416479a0cfc9fa, type: 3}
+--- !u!70 &3580309245850638005
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229526969390742662}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.003263235, y: -0.03263253}
+  m_Size: {x: 0.5456855, y: 1.3132724}
+  m_Direction: 0
