@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ObjectManager : MonoBehaviour
 {
-    public GameObject EnemyMPrefab;
+    public GameObject HeadBossPrefab;
 
     public GameObject BossBulletAPrefab;
     public GameObject BossBulletBPrefab;
 
-    GameObject[] EnemyM;
+    GameObject[] HeadBoss;
 
     GameObject[] BossBulletA;
     GameObject[] BossBulletB;
@@ -18,7 +18,7 @@ public class ObjectManager : MonoBehaviour
 
     private void Awake()
     {
-        EnemyM = new GameObject[10];
+        HeadBoss = new GameObject[1];
 
         BossBulletA = new GameObject[500];
         BossBulletB = new GameObject[500];
@@ -28,11 +28,10 @@ public class ObjectManager : MonoBehaviour
 
     void Generate()
     {
-        //보스 에너미
-        for(int index=0; index < EnemyM.Length; index++)
+        for (int index = 0; index < HeadBoss.Length; index++)
         {
-            EnemyM[index] = Instantiate(EnemyMPrefab);
-            EnemyM[index].SetActive(false);
+            HeadBoss[index] = Instantiate(HeadBossPrefab);
+            HeadBoss[index].SetActive(false);
         }
 
         //보스 총알
@@ -46,14 +45,15 @@ public class ObjectManager : MonoBehaviour
             BossBulletB[index] = Instantiate(BossBulletBPrefab);
             BossBulletB[index].SetActive(false);
         }
+        
     }
 
     public GameObject MakeObj(string type)
     {
         switch (type)
         {
-            case "EnemyM":
-                targetPool = EnemyM;
+            case "HeadBoss":
+                targetPool = HeadBoss;
                 break;
             case "BossBulletA":
                 targetPool = BossBulletA;
@@ -62,16 +62,23 @@ public class ObjectManager : MonoBehaviour
                 targetPool = BossBulletB;
                 break;
         }
-        for (int index = 0; index < targetPool.Length; index++)
-        {
-            if (!targetPool[index].activeSelf)
-            {
-                targetPool[index].SetActive(true);
-                return targetPool[index];
-            }
-
-        }
-
         return null;
     }
+    public GameObject[] GetPool(string type)
+    {
+        switch (type)
+        {
+            case "HeadBoss":
+                targetPool = HeadBoss;
+                break;
+            case "BossBulletA":
+                targetPool = BossBulletA;
+                break;
+            case "BossBulletB":
+                targetPool = BossBulletB;
+                break;
+        }
+        return targetPool;
+    }
+  
 }
