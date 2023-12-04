@@ -8,7 +8,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
     public GameObject playTime;
-    public GameObject playerPrefab;
+    public GameObject playerPrefab1;
+    public GameObject playerPrefab2;
+    public GameObject playerPrefab3;
+    public GameObject playerPrefab4;
+    public GameObject playerPrefab5;
+
     public GameObject enemyPrefab;
     public GameObject enemy2Prefab;
     public GameObject bossPrefab;
@@ -79,7 +84,31 @@ public class GameManager : MonoBehaviour
 
     private void InstantiatePlayer()
     {
-        Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+        int playerSelection = PlayerPrefs.GetInt("PlayerSelect");
+
+        GameObject playerPrefab = null;
+
+        switch (playerSelection)
+        {
+            case 1:
+                playerPrefab = playerPrefab1; 
+                break;
+            case 2:
+                playerPrefab = playerPrefab2;
+                break;
+            case 3:
+                playerPrefab = playerPrefab3;
+                break;
+            case 4:
+                playerPrefab = playerPrefab4;
+                break;
+            case 5:
+                playerPrefab = playerPrefab5;
+                break;
+            default:
+                Debug.LogError("플레이어 선택에 실패하였습니다.");
+                return;
+        }
     }
     
    

@@ -260,9 +260,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playTime: {fileID: 5940286479213893694, guid: 17175dfb099dbd142ba791c9208ec8fe, type: 3}
-  playerPrefab: {fileID: 2498569760606410162, guid: 91d0982240de7994aa7439c1aadc79ab, type: 3}
-  enemyPrefab: {fileID: 951891657046425831, guid: f53402d2a36c2fb4fa69fd32d403f0d3, type: 3}
-  enemy2Prefab: {fileID: 8298334083550783563, guid: dbf4fb0aab37fc040a95f05782bca6d2, type: 3}
+  playerPrefab1: {fileID: 916143255588966413, guid: 942e9e25c8ac728429b09cff91a776d9, type: 3}
+  playerPrefab2: {fileID: 7539619526406431562, guid: 42b5cd8cb22860b4ea87c4e7379617cf, type: 3}
+  playerPrefab3: {fileID: 6683021689577094242, guid: cd4efb4829372464a8dadf0ecfe6549c, type: 3}
+  playerPrefab4: {fileID: 5404931300864741054, guid: 0dbebe1277890334f89690c7d2da1c92, type: 3}
+  playerPrefab5: {fileID: 4088200864865797233, guid: 8338593b6453b204ba67a59c62f810b7, type: 3}
+  enemyPrefab: {fileID: 770727667607009131, guid: f53402d2a36c2fb4fa69fd32d403f0d3, type: 3}
+  enemy2Prefab: {fileID: 3383795617916727000, guid: dbf4fb0aab37fc040a95f05782bca6d2, type: 3}
   bossPrefab: {fileID: 5915395687670854920, guid: 5c76f8a8402c62b4b94c39db05a579d7, type: 3}
   enemyTypeTime: {fileID: 2107938653}
 --- !u!1 &2107938653 stripped
