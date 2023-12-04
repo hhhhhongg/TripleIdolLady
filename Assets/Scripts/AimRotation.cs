@@ -28,7 +28,7 @@ public class AimRotation : MonoBehaviour
     {
         float rotZ = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        _armRenderer.flipY = Mathf.Abs(rotZ) > 90f;
+        _armRenderer.flipY = Mathf.Abs(rotZ) > 90f;        
         _playerRenderer.flipX = _armRenderer.flipY;
 
         _armPivot.rotation = Quaternion.Euler(0, 0, rotZ);        
