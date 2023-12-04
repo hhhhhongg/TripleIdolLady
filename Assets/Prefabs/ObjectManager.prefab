@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f154cafc9d59dd48a80788ca7689692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyMPrefab: {fileID: 8400869388732715315, guid: a5d05faa45624a646b1ce703b285cbc3, type: 3}
-  BossBulletAPrefab: {fileID: 8573547826573358493, guid: c29b1d02ef1b5dc49a7ceaa4004d9077, type: 3}
+  HeadBossPrefab: {fileID: 5915395687670854920, guid: 5c76f8a8402c62b4b94c39db05a579d7, type: 3}
+  BossBulletAPrefab: {fileID: 7412472266016699254, guid: 20a9a46ea62d7ad499bef7d2e4ab644a, type: 3}
   BossBulletBPrefab: {fileID: 7412472266016699254, guid: 2ff8f56e95ad3ee4da3ab294506db163, type: 3}
