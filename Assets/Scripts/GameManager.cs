@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         InstantiatePlayer();
-        
     }
 
     
@@ -86,7 +85,7 @@ public class GameManager : MonoBehaviour
     {
         int playerSelection = PlayerPrefs.GetInt("PlayerSelect");
 
-        GameObject playerPrefab = null;
+        GameObject playerPrefab = GetComponent<GameObject>();
 
         switch (playerSelection)
         {
@@ -109,6 +108,7 @@ public class GameManager : MonoBehaviour
                 Debug.LogError("플레이어 선택에 실패하였습니다.");
                 return;
         }
+        Instantiate(playerPrefab);
     }
     
    
