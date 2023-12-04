@@ -168,8 +168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _menu: {fileID: 3656241443330970513, guid: a613429a1bf3e424abdf1209368b7afc, type: 3}
-  _spawn: {fileID: 1119551556990840602, guid: 644b0ab45b5d30c4e8b0f799baef30a2, type: 3}
+  _spawn: {fileID: 2358891816638156154, guid: a8c1b72e76b4549459370467c65ecd24, type: 3}
   _playerView: {fileID: 2349118251171373253, guid: 8bf899a8cb0b52045b8030406c251122, type: 3}
+  _enemy: {fileID: 3082529624775153981, guid: 532e7b8fe8a053c449a66eb69a9efbf4, type: 3}
   MainCam: {fileID: 1703748814}
 --- !u!1 &1703748814
 GameObject:

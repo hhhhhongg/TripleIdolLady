@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PrefabMove : MonoBehaviour
 {
@@ -15,5 +15,11 @@ public class PrefabMove : MonoBehaviour
     private void Update()
     {
         transform.position += moveDirection * speed * Time.deltaTime;
+        transform.Rotate(new Vector3(0, 0, 150f) * Time.deltaTime);
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        collision.gameObject.transform.Translate(new Vector2(-0.1f, 0));
+    }
+
 }
