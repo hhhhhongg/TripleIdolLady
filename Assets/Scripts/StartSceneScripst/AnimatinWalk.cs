@@ -11,7 +11,7 @@ public class AnimatinWalk : MonoBehaviour
     }
     private void Start()
     {
-        animator.SetBool("Iswalk", true);
+        animator.SetBool("isWalk", true);
         //씬 넘어가면 false로 변하나? 확인해보기 
     }
 }

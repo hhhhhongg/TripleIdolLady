@@ -31,7 +31,7 @@ public class RayCastTest : MonoBehaviour
                 {
                     animator = gameObjects[p - 1].GetComponent<Animator>();
                     playerNum = int.Parse(hit.transform.name.Substring(hit.transform.name.Length - 1));
-                    animator.SetBool("Iswalk", playerNum == p);
+                    animator.SetBool("isWalk", playerNum == p);
 
                     if (playerNum == p)
                     {
