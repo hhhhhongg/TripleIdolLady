@@ -6,6 +6,7 @@ public class HeadBoss : MonoBehaviour
 {
     public string enemyName;
     public int health;
+    private int _damage = 0;
 
     public int patternIndex;
     public int curPatternCount;
@@ -25,7 +26,7 @@ public class HeadBoss : MonoBehaviour
     {
         if (health <= 0)
             return;
-       
+
     }
 
     private void OnEnable()
@@ -78,11 +79,11 @@ public class HeadBoss : MonoBehaviour
         GameObject BossBulletL = objectManager.MakeObj("BossBulletA");
         BossBulletL.transform.position = transform.position + Vector3.left * 0.3f;
         GameObject BossBulletLL = objectManager.MakeObj("BulletBossA");
-        BossBulletLL.transform.position = transform.position + Vector3.left * 0.45f;
+        BossBulletLL.transform.position = transform.position + Vector3.left * 0.35f;
         GameObject BossBulletLLL = objectManager.MakeObj("BulletBossA");
-        BossBulletLLL.transform.position = transform.position + Vector3.left * 0.3f;
+        BossBulletLLL.transform.position = transform.position + Vector3.left * 0.4f;
         GameObject BossBulletLLLL = objectManager.MakeObj("BulletBossA");
-        BossBulletLLLL.transform.position = transform.position + Vector3.left * 0.3f;
+        BossBulletLLLL.transform.position = transform.position + Vector3.left * 0.45f;
 
         Rigidbody2D rigidL = BossBulletL.GetComponent<Rigidbody2D>();
         Rigidbody2D rigidLL = BossBulletLL.GetComponent<Rigidbody2D>();
@@ -96,19 +97,19 @@ public class HeadBoss : MonoBehaviour
 
         //패턴카운트
         curPatternCount++;
-        if(curPatternCount < maxPatternCount[patternIndex])
+        if (curPatternCount < maxPatternCount[patternIndex])
             Invoke("FireFoward", 2);
         else
-        Invoke("Think", 2);
+            Invoke("Think", 2);
     }
     void FireShot()
     {
-        for(int index=0; index < 5; index++)
+        for (int index = 0; index < 5; index++)
         {
-            GameObject bullet = objectManager.MakeObj("BossBulletB");
-            bullet.transform.position = transform.position;
+            GameObject BossBullet = objectManager.MakeObj("BossBulletB");
+            BossBullet.transform.position = transform.position;
 
-            Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
+            Rigidbody2D rigid = BossBullet.GetComponent<Rigidbody2D>();
             Vector2 dirVec = player.transform.position - transform.position;
             Vector2 ranVec = new Vector2(Random.Range(0f, 5f), Random.Range(-1f, 1f));
             dirVec += ranVec;
@@ -122,9 +123,16 @@ public class HeadBoss : MonoBehaviour
     }
     void FireArc()
     {
+        GameObject BossBullet = objectManager.MakeObj("BossBulletA");
+        BossBullet.transform.position = transform.position;
+        BossBullet.transform.rotation = Quaternion.identity;
+
+        Rigidbody2D rigid = BossBullet.GetComponent<Rigidbody2D>();
+        Vector2 dirVec = new Vector2(Mathf.Cos(curPatternCount), -1);
+        rigid.AddForce(dirVec.normalized * 5, ForceMode2D.Impulse);
         curPatternCount++;
         if (curPatternCount < maxPatternCount[patternIndex])
-            Invoke("FireArc",0.15f);
+            Invoke("FireArc", 0.15f);
         else
             Invoke("Think", 2);
     }
@@ -136,19 +144,35 @@ public class HeadBoss : MonoBehaviour
         else
             Invoke("Think", 2);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.gameObject.tag == "BorderBullet" && enemyName !="B")
+        if (collider.gameObject.tag == "Bullet1")
         {
-            gameObject.SetActive(false);
-            transform.rotation = Quaternion.identity;
+            TakeDamage(collider, 2);
         }
-        else if (collision.gameObject.tag == "PlayerBullet")
+        else if (collider.gameObject.tag == "Bullet2")
         {
-            BossBullet1 bullet = collision.gameObject.GetComponent<BossBullet1>();
-            OnHit(bullet.dmg);
-
-            collision.gameObject.SetActive(false);
+            TakeDamage(collider, 3);
         }
+        else if (collider.gameObject.tag == "Bullet3")
+        {
+            TakeDamage(collider, 4);
+        }
+    }
+    private void TakeDamage(Collider2D collider, int _bulletDamage)
+    {
+        if (_damage < health)
+        {
+            _damage += _bulletDamage;
+        }
+        else
+        {
+            health = 0;
+            Die();
+        }
+    }
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }
