@@ -14,6 +14,6 @@ public class PlayerCam : MonoBehaviour
     void LateUpdate()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        this.transform.position = playerTransform.position + new Vector3(0,0,-10);
+        this.transform.position = playerTransform.position + new Vector3(0,0,-15);
     }
 }
