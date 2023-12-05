@@ -153,7 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startObject: {fileID: 7522888731137063620, guid: 33a3f44d2118fd847b88fdf7723cd008, type: 3}
-  _PlayerView: {fileID: 673677344587301021, guid: 3f0ba13e5b070d54da73924f4efa8bf0, type: 3}
+  _playerView: {fileID: 673677344587301021, guid: 3f0ba13e5b070d54da73924f4efa8bf0, type: 3}
+  _musicObject: {fileID: 3888522681591986905, guid: 17308a11fb97d3b469d91549f5dce9e3, type: 3}
 --- !u!4 &1476765124
 Transform:
   m_ObjectHideFlags: 0
