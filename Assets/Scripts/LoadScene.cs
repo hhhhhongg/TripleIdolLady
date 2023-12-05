@@ -12,22 +12,12 @@ public class LoadScene : MonoBehaviour
         _sceneName = SceneManager.GetActiveScene().name;
         if (_sceneName == "StartScene")
         {
-            Invoke("LodeSelect", 0.7f);
+            SceneManager.LoadScene("SelectPlayerScene");
         }
         else if (_sceneName == "SelectPlayerScene")
         {
-            Invoke("LodeMain",0.7f);
+            SceneManager.LoadScene("MainScene");
         }
 
     }
-
-    private void LodeSelect() 
-    {
-        SceneManager.LoadScene("SelectPlayerScene");
-    }
-    private void LodeMain()
-    {
-        SceneManager.LoadScene("MainScene");
-    }
-
 }
