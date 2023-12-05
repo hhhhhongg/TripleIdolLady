@@ -427,7 +427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyName: B
-  health: 5000
+  health: 2000
   patternIndex: -1
   curPatternCount: 0
   maxPatternCount: 14000000140000006400000014000000
