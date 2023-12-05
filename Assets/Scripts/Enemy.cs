@@ -66,7 +66,7 @@ public class Enemy : MonoBehaviour
         }
         else if (collider.gameObject.tag == "Bullet3")
         {
-            TakeDamage(collider, 4);
+            TakeDamage(collider, 4);            
         }
 
         if (collider.gameObject.tag == ("Player"))
@@ -84,26 +84,29 @@ public class Enemy : MonoBehaviour
             if (_damage < _hp)
             {
                 _damage += _bulletDamage;
+                float num = _damage / _hp;
                 Destroy(collider.gameObject);
-                gameObject.transform.Find("Enemy1Sprite/Canvas/Front").transform.localScale = new Vector3(_damage / _hp, 1.0f, 1.0f);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+                gameObject.transform.Find("Enemy1Sprite/Canvas/Front").transform.localScale = new Vector3(num, 1.0f, 1.0f);
+                if (num == 1)
+                {
+                    Destroy(gameObject);
+                }
+            }            
         }
         else if (type == 2)
         {
             if (_damage < _hp)
             {
                 _damage += _bulletDamage;
+                float num = _damage / _hp;
                 Destroy(collider.gameObject);
-                gameObject.transform.Find("Enemy2Sprite/Canvas/Front").transform.localScale = new Vector3(_damage / _hp, 1.0f, 1.0f);
+                gameObject.transform.Find("Enemy2Sprite/Canvas/Front").transform.localScale = new Vector3(num, 1.0f, 1.0f);
+                if (num == 1)
+                {
+                    Destroy(gameObject);
+                }
             }
-            else
-            {
-                Destroy(gameObject);
-            }
+            
         }
     }
 
