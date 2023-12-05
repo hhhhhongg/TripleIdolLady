@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
         switch (playerSelection)
         {
             case 1:
-                playerPrefab = playerPrefab1;
+                playerPrefab = playerPrefab1; 
                 break;
             case 2:
                 playerPrefab = playerPrefab2;
@@ -105,7 +105,6 @@ public class GameManager : MonoBehaviour
             case 5:
                 playerPrefab = playerPrefab5;
                 break;
-                Debug.Log(playerPrefab);
             default:
                 Debug.LogError("플레이어 선택에 실패하였습니다.");
                 return;
