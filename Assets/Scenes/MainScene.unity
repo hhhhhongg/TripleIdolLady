@@ -431,9 +431,4 @@ MonoBehaviour:
   enemyPrefab: {fileID: 770727667607009131, guid: f53402d2a36c2fb4fa69fd32d403f0d3, type: 3}
   enemy2Prefab: {fileID: 3383795617916727000, guid: dbf4fb0aab37fc040a95f05782bca6d2, type: 3}
   bossPrefab: {fileID: 5915395687670854920, guid: 5c76f8a8402c62b4b94c39db05a579d7, type: 3}
-  enemyTypeTime: {fileID: 2065203119}
---- !u!1 &2065203119 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 566438739484943904, guid: 6944899578caafd4c91263e150dc2a96, type: 3}
-  m_PrefabInstance: {fileID: 1102361519}
-  m_PrefabAsset: {fileID: 0}
+  enemyTypeTime: {fileID: 0}

@@ -20,20 +20,20 @@ public class EnemyB : MonoBehaviour
 
         if(Health <= 0)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "BorderBullet")
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         else if (collision.gameObject.tag == "PlayerBullet")
         {
             BossBullet1 bullet = collision.gameObject.GetComponent<BossBullet1>();
             OnHit(bullet.dmg);
 
-            Destroy(collision.gameObject);
+            gameObject.SetActive(false);
         }
             
 

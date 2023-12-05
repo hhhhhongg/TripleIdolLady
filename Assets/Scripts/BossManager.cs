@@ -4,13 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 public class BossManager : MonoBehaviour
 {
-    public GameObject[] enemyObjs;
+    public string[] enemyObjs;
     public Transform[] spawnPoints;
 
     public float maxSpawnDelay;
     public float curSpawnDelay;
 
     public ObjectManager objectManager;
+
+    private void Awake()
+    {
+        enemyObjs = new string[] { "EnemyM" };
+    }
 
     private void Update()
     {
@@ -23,13 +28,12 @@ public class BossManager : MonoBehaviour
             curSpawnDelay = 0;
         }
     }
-
     void SpawnEnemy()
     {
         int ranEnemy = Random.Range(0, 1);
         int ranPoint = Random.Range(0, 10);
-        Instantiate(enemyObjs[ranEnemy],
-                spawnPoints[ranPoint].position,
-                spawnPoints[ranPoint].rotation);
+        GameObject enemy = objectManager.MakeObj(enemyObjs[ranEnemy]);
+        enemy.transform.position = spawnPoints[ranPoint].position;
+
     }
 }

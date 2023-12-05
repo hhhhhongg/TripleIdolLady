@@ -8,6 +8,9 @@ public class HeadBoss : MonoBehaviour
     public int health;
     private int _damage = 0;
 
+    public float maxShotDelay;
+    public float curShotDelay;
+
     public int patternIndex;
     public int curPatternCount;
     public int[] maxPatternCount;
@@ -15,8 +18,8 @@ public class HeadBoss : MonoBehaviour
     public GameObject player;
     public ObjectManager objectManager;
 
-    public GameObject BulletObj1;
-    public GameObject BulletObj2;
+    public GameObject BossBulletA;
+    public GameObject BossBulletB;
     void Update()
     {
         if (enemyName == "B")
@@ -144,6 +147,21 @@ public class HeadBoss : MonoBehaviour
         else
             Invoke("Think", 2);
     }
+
+    void Fire()
+    {
+        if (curShotDelay < maxShotDelay)
+            return;
+        if(enemyName == "B")
+        {
+            GameObject BossBulletA = objectManager.MakeObj("BossBulletA");
+            BossBulletA.transform.position = transform.position;
+
+            Rigidbody2D rigid = BossBulletA.GetComponent<Rigidbody2D>();
+            Vector3 dirVec = player.transform.position - transform.position;
+            rigid.AddForce(dirVec.normalized * 3, ForceMode2D.Impulse);
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Bullet1")
@@ -173,6 +191,6 @@ public class HeadBoss : MonoBehaviour
     }
     private void Die()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }
