@@ -62,6 +62,14 @@ public class ObjectManager : MonoBehaviour
                 targetPool = BossBulletB;
                 break;
         }
+        for (int index = 0; index < targetPool.Length; index++)
+        {
+            if (!targetPool[index].activeSelf)
+            {
+                targetPool[index].SetActive(true);
+                return targetPool[index];
+            }
+        }
         return null;
     }
     public GameObject[] GetPool(string type)
