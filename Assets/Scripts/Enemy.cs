@@ -104,8 +104,9 @@ public class Enemy : MonoBehaviour
         float randomDirection = Random.Range(0f, 360f);
 
         // 랜덤한 위치를 화면 바깥으로 설정
-        float x = Mathf.Cos(randomDirection * Mathf.Deg2Rad) * (screenWidth + 5f);
-        float y = Mathf.Sin(randomDirection * Mathf.Deg2Rad) * (screenHeight + 5f);
+        float radius = Mathf.Sqrt(Mathf.Pow(screenWidth * 0.5f, 2) + Mathf.Pow(screenHeight * 0.5f, 2)) + 5f;
+        float x = Mathf.Cos(randomDirection * Mathf.Deg2Rad) * radius + screenWidth * 0.5f;
+        float y = Mathf.Sin(randomDirection * Mathf.Deg2Rad) * radius + screenHeight * 0.5f;
 
         // 스크린 좌표를 다시 월드 좌표로 변환
         Vector3 spawnPosition = Camera.main.ScreenToWorldPoint(new Vector3(x, y, screenPos.z));

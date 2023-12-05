@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public GameObject playerPrefab4;
     public GameObject playerPrefab5;
 
+    public Text livesText;
+
     public GameObject enemyPrefab;
     public GameObject enemy2Prefab;
     public GameObject bossPrefab;
@@ -113,5 +115,9 @@ public class GameManager : MonoBehaviour
         Instantiate(playerPrefab);
     }
     
+    public void UpdateLives(int lives)
+    {
+        livesText.text = $"{lives.ToString()}";
+    }
    
 }
