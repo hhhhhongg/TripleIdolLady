@@ -20,17 +20,17 @@ public class ObjectManager : MonoBehaviour
     {
         HeadBoss = new GameObject[1];
 
-        BossBulletA = new GameObject[10];
-        BossBulletB = new GameObject[10];
+        BossBulletA = new GameObject[100];
+        BossBulletB = new GameObject[100];
         Generate();
     }
 
     void Generate()
     {
-        for (int index = 0; index < HeadBoss.Length; index++)
+        for (int index = 0; index <= HeadBoss.Length; index++)
         {
-            HeadBoss[index] = Instantiate(HeadBossPrefab);
-            HeadBoss[index].SetActive(false);
+            //HeadBoss[index] = Instantiate(HeadBossPrefab);
+            //HeadBoss[index].SetActive(false);
         }
 
         //º¸½º ÃÑ¾Ë

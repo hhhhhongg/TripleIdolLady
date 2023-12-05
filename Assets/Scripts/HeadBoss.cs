@@ -51,7 +51,7 @@ public class HeadBoss : MonoBehaviour
         Rigidbody2D rigid = GetComponent<Rigidbody2D>();
         rigid.velocity = Vector2.zero;
 
-        Invoke("Think", 2);
+        Invoke("Think", 1);
     }
 
     void Think()
@@ -100,7 +100,7 @@ public class HeadBoss : MonoBehaviour
 
         //패턴카운트
         curPatternCount++;
-        if (curPatternCount < maxPatternCount[patternIndex])
+        if (curPatternCount < 2)
             Invoke("FireFoward", 2);
         else
             Invoke("Think", 2);
@@ -119,7 +119,7 @@ public class HeadBoss : MonoBehaviour
             rigid.AddForce(dirVec.normalized * 3, ForceMode2D.Impulse);
         }
         curPatternCount++;
-        if (curPatternCount < maxPatternCount[patternIndex])
+        if (curPatternCount < 2)
             Invoke("FireShot", 2);
         else
             Invoke("Think", 2);
@@ -131,10 +131,10 @@ public class HeadBoss : MonoBehaviour
         BossBullet.transform.rotation = Quaternion.identity;
 
         Rigidbody2D rigid = BossBullet.GetComponent<Rigidbody2D>();
-        Vector2 dirVec = new Vector2(Mathf.Cos(curPatternCount), -1);
+        Vector2 dirVec = new Vector2(-1, Mathf.Cos(curPatternCount));
         rigid.AddForce(dirVec.normalized * 5, ForceMode2D.Impulse);
         curPatternCount++;
-        if (curPatternCount < maxPatternCount[patternIndex])
+        if (curPatternCount < 20)
             Invoke("FireArc", 0.15f);
         else
             Invoke("Think", 2);
@@ -142,8 +142,9 @@ public class HeadBoss : MonoBehaviour
     void FireAround()
     {
         curPatternCount++;
-        if (curPatternCount < maxPatternCount[patternIndex])
-            Invoke("FireAround", 0.7f);
+        if (curPatternCount < 20) { 
+            Invoke("FireAround", 0.1f);
+        }
         else
             Invoke("Think", 2);
     }
@@ -177,11 +178,14 @@ public class HeadBoss : MonoBehaviour
             TakeDamage(collider, 4);
         }
     }
+
+
     private void TakeDamage(Collider2D collider, int _bulletDamage)
     {
         if (_damage < health)
         {
             _damage += _bulletDamage;
+            health -= _damage;
         }
         else
         {
