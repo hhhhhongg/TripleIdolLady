@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 7964019414677399809}
   m_Layer: 0
   m_Name: Enemy2
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -193,7 +193,7 @@ Transform:
   m_Children:
   - {fileID: 3525272173480170357}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4148835715633274802
 MonoBehaviour:
@@ -208,6 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
+  speed: 5
 --- !u!61 &7964019414677399809
 BoxCollider2D:
   m_ObjectHideFlags: 0
