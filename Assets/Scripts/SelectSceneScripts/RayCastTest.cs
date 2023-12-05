@@ -8,9 +8,11 @@ public class RayCastTest : MonoBehaviour
     int playerNum;
     int[] playerNumList =new int[] {1,2,3,4,5};
     public GameObject[] gameObjects;
+    public AudioSource audioSource;
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         cam = GetComponent<Camera>();
     }
     private void Update()
@@ -35,6 +37,7 @@ public class RayCastTest : MonoBehaviour
 
                     if (playerNum == p)
                     {
+                        audioSource.Play();
                         PlayerPrefs.SetInt("PlayerSelect", p);
                         int a = PlayerPrefs.GetInt("PlayerSelect");
                     }
