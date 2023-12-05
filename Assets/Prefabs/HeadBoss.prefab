@@ -350,7 +350,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5915395687670854920}
-  m_BodyType: 2
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -428,5 +428,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: B
   health: 5000
+  patternIndex: -1
+  curPatternCount: 0
+  maxPatternCount: 14000000140000006400000014000000
+  player: {fileID: 916143255588966413, guid: 942e9e25c8ac728429b09cff91a776d9, type: 3}
+  objectManager: {fileID: 5559755065609022995, guid: 5b96a48118d2e554ea38974518e2fd79, type: 3}
   BulletObj1: {fileID: 7412472266016699254, guid: 20a9a46ea62d7ad499bef7d2e4ab644a, type: 3}
   BulletObj2: {fileID: 7412472266016699254, guid: 2ff8f56e95ad3ee4da3ab294506db163, type: 3}
