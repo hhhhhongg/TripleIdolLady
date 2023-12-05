@@ -20,9 +20,8 @@ public class ObjectManager : MonoBehaviour
     {
         HeadBoss = new GameObject[1];
 
-        BossBulletA = new GameObject[500];
-        BossBulletB = new GameObject[500];
-
+        BossBulletA = new GameObject[10];
+        BossBulletB = new GameObject[10];
         Generate();
     }
 
@@ -71,7 +70,7 @@ public class ObjectManager : MonoBehaviour
             }
         }
         return null;
-    }
+     }
     public GameObject[] GetPool(string type)
     {
         switch (type)

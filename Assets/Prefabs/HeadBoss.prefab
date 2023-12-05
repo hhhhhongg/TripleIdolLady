@@ -265,6 +265,7 @@ GameObject:
   - component: {fileID: 1630316830407323402}
   - component: {fileID: 6938497454591193187}
   - component: {fileID: 2802620272529729025}
+  - component: {fileID: 8363405362704440352}
   m_Layer: 0
   m_Name: HeadBoss
   m_TagString: Untagged
@@ -288,7 +289,7 @@ Transform:
   - {fileID: 5392359797539702617}
   - {fileID: 2462874543626905598}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2612712639444880278
 SpriteRenderer:
@@ -428,10 +429,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: B
   health: 5000
+  maxShotDelay: 0
+  curShotDelay: 0
   patternIndex: -1
   curPatternCount: 0
   maxPatternCount: 14000000140000006400000014000000
   player: {fileID: 916143255588966413, guid: 942e9e25c8ac728429b09cff91a776d9, type: 3}
-  objectManager: {fileID: 5559755065609022995, guid: 5b96a48118d2e554ea38974518e2fd79, type: 3}
-  BulletObj1: {fileID: 7412472266016699254, guid: 20a9a46ea62d7ad499bef7d2e4ab644a, type: 3}
-  BulletObj2: {fileID: 7412472266016699254, guid: 2ff8f56e95ad3ee4da3ab294506db163, type: 3}
+  objectManager: {fileID: 8363405362704440352}
+  BossBulletA: {fileID: 7412472266016699254, guid: 20a9a46ea62d7ad499bef7d2e4ab644a, type: 3}
+  BossBulletB: {fileID: 7412472266016699254, guid: 2ff8f56e95ad3ee4da3ab294506db163, type: 3}
+--- !u!114 &8363405362704440352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5915395687670854920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f154cafc9d59dd48a80788ca7689692, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HeadBossPrefab: {fileID: 5915395687670854920}
+  BossBulletAPrefab: {fileID: 7412472266016699254, guid: 20a9a46ea62d7ad499bef7d2e4ab644a, type: 3}
+  BossBulletBPrefab: {fileID: 7412472266016699254, guid: 2ff8f56e95ad3ee4da3ab294506db163, type: 3}
