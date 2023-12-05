@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     private float _hp;
     private float _damage = 0f;
     private Transform _player;
+    private SpriteRenderer _spriteRenderer;
     public int type;
     public float speed = 5f;
 
@@ -27,6 +28,12 @@ public class Enemy : MonoBehaviour
         // 플레이어 오브젝트를 찾아서 변수에 할당
         _player = GameObject.FindGameObjectWithTag("Player").transform;
 
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        if (_spriteRenderer == null)
+        {
+            Debug.LogError("SpriteRenderer not found in children of Enemy object!");
+        }
+
         // 랜덤한 좌표 가져오기
         SpawnOutsideScreen();
     }
@@ -35,6 +42,15 @@ public class Enemy : MonoBehaviour
     {
         Vector3 direction = (_player.position - transform.position).normalized;
         transform.Translate(direction * speed * Time.deltaTime);
+
+        if (transform.position.x > _player.position.x)
+        {
+            FlipSprite(true);
+        }
+        else
+        {
+            FlipSprite(false);
+        }
     }
 
     // Bullet과 Enemy가 부딪혔을때 발생하는 일들
@@ -111,5 +127,11 @@ public class Enemy : MonoBehaviour
         // 스크린 좌표를 다시 월드 좌표로 변환
         Vector3 spawnPosition = Camera.main.ScreenToWorldPoint(new Vector3(x, y, screenPos.z));
         transform.position = new Vector3(spawnPosition.x, spawnPosition.y, 0f);
+    }
+
+    private void FlipSprite(bool isFacingLeft)
+    {
+        // 스프라이트를 뒤집습니다.
+        _spriteRenderer.flipX = isFacingLeft;
     }
 }
