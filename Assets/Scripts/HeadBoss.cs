@@ -21,8 +21,6 @@ public class HeadBoss : MonoBehaviour
     {
         if (enemyName == "B")
             return;
-
-        
     }
     public void OnHit(int dmg)
     {
