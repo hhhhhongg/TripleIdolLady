@@ -78,7 +78,7 @@ public class HeadBoss : MonoBehaviour
     {
         for (int index = 0; index < 20; index++)
         {   
-            GameObject BossBullet = objectManager.MakeObj("BossBulletB");
+            GameObject BossBullet = objectManager.MakeObj("BossBulletA");
             BossBullet.transform.position = transform.position;
 
             Rigidbody2D rigid = BossBullet.GetComponent<Rigidbody2D>();
@@ -123,7 +123,7 @@ public class HeadBoss : MonoBehaviour
             rigid.AddForce(dirVec.normalized * 10, ForceMode2D.Impulse);
         }
         curPatternCount++;
-        if (curPatternCount < 30) { 
+        if (curPatternCount < 20) { 
             Invoke("FireAround", 0.1f);
         }
         else
