@@ -5,6 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     PlayerController _controller;
+    [SerializeField] float speed = 5.0f;
 
     private Vector2 _movementDirection = Vector2.zero;
     private Rigidbody2D _rigidbody;
@@ -30,7 +31,7 @@ public class Movement : MonoBehaviour
 
     private void ApplyMovement(Vector2 direction)
     {
-        direction = direction * 5;
+        direction = direction * speed;
         _rigidbody.velocity = direction;
     }
 }
