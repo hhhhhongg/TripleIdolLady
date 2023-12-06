@@ -14,7 +14,7 @@ public class PlayerLives : MonoBehaviour
         GameManager.instance.UpdateLives(currentLives);
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
+    private void OnCollisionEnter2D(Collision2D collider)
     {
         if (collider.gameObject.tag == ("Enemy"))
         {
