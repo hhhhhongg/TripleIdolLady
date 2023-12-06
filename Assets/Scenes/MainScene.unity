@@ -439,7 +439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3417ac9c4a3d8440a1a046a7bfc30ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playTime: {fileID: 5940286479213893694, guid: 17175dfb099dbd142ba791c9208ec8fe, type: 3}
   playerPrefab1: {fileID: 916143255588966413, guid: 942e9e25c8ac728429b09cff91a776d9, type: 3}
   playerPrefab2: {fileID: 7539619526406431562, guid: 42b5cd8cb22860b4ea87c4e7379617cf, type: 3}
   playerPrefab3: {fileID: 6683021689577094242, guid: cd4efb4829372464a8dadf0ecfe6549c, type: 3}
@@ -450,3 +449,4 @@ MonoBehaviour:
   enemy2Prefab: {fileID: 3383795617916727000, guid: dbf4fb0aab37fc040a95f05782bca6d2, type: 3}
   bossPrefab: {fileID: 5915395687670854920, guid: 5c76f8a8402c62b4b94c39db05a579d7, type: 3}
   enemyTypeTime: {fileID: 546340851}
+  BossBorderBullet: {fileID: 6702587518742970547, guid: 0309b7f7e64a60b4c8d1a2dbeec93bce, type: 3}
