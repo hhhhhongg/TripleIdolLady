@@ -177,5 +177,6 @@ public class HeadBoss : MonoBehaviour
     private void Die()
     {
         gameObject.SetActive(false);
+        GameManager.instance.BossIsDead = true;
     }
 }
