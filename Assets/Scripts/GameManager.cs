@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
-    public GameObject playTime;
     public GameObject playerPrefab1;
     public GameObject playerPrefab2;
     public GameObject playerPrefab3;
@@ -21,6 +20,7 @@ public class GameManager : MonoBehaviour
     public GameObject enemy2Prefab;
     public GameObject bossPrefab;
     public GameObject enemyTypeTime;
+    public GameObject BossBorderBullet;
 
     [Header("Àç½ÃÀÛ")]
     public GameObject LoseReTry;
@@ -95,6 +95,7 @@ public class GameManager : MonoBehaviour
         if (currentMinutes >= 1 && checkBoss == false)
         {
             ChangePlayerPosition();
+            Instantiate(BossBorderBullet);
             Invoke("InstantiateBoss", 3f);
             checkBoss = true;
         }
@@ -112,6 +113,7 @@ public class GameManager : MonoBehaviour
     private void InstantiateBoss()
     {
         Instantiate(bossPrefab);
+        
     }
 
     private void InstantiatePlayer()
