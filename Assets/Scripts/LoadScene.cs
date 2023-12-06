@@ -20,6 +20,7 @@ public class LoadScene : MonoBehaviour
         }
         else if (_sceneName == "MainScene") 
         {
+            
             Invoke("LodeSelect",0);
         }
 
@@ -34,5 +35,5 @@ public class LoadScene : MonoBehaviour
         SceneManager.LoadScene("MainScene");
     }
 
-
+    
 }
