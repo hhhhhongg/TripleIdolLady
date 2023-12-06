@@ -55,58 +55,28 @@ public class HeadBoss : MonoBehaviour
 
     void Think()
     {
-        patternIndex = patternIndex == 3 ? 0 : patternIndex + 1;
+        patternIndex = patternIndex >= 2 ? 0 : patternIndex + 1;
         curPatternCount = 0;
 
         switch (patternIndex)
         {
+            
             case 0:
-                FireFoward();
-                break;
-            case 1:
                 FireShot();
                 break;
-            case 2:
+            case 1:
                 FireArc();
                 break;
-            case 3:
+            case 2:
                 FireAround();
                 break;
         }
     }
 
-    void FireFoward()
-    {
-        //4발 발사 패턴
-        GameObject BossBulletL = objectManager.MakeObj("BossBulletA");
-        BossBulletL.transform.position = transform.position + Vector3.left * 0.3f;
-        GameObject BossBulletLL = objectManager.MakeObj("BulletBossA");
-        BossBulletLL.transform.position = transform.position + Vector3.left * 0.35f;
-        GameObject BossBulletLLL = objectManager.MakeObj("BulletBossA");
-        BossBulletLLL.transform.position = transform.position + Vector3.left * 0.4f;
-        GameObject BossBulletLLLL = objectManager.MakeObj("BulletBossA");
-        BossBulletLLLL.transform.position = transform.position + Vector3.left * 0.45f;
-
-        Rigidbody2D rigidL = BossBulletL.GetComponent<Rigidbody2D>();
-        Rigidbody2D rigidLL = BossBulletLL.GetComponent<Rigidbody2D>();
-        Rigidbody2D rigidLLL = BossBulletLLL.GetComponent<Rigidbody2D>();
-        Rigidbody2D rigidLLLL = BossBulletLLLL.GetComponent<Rigidbody2D>();
-
-        rigidL.AddForce(Vector2.left * 8, ForceMode2D.Impulse);
-        rigidLL.AddForce(Vector2.left * 8, ForceMode2D.Impulse);
-        rigidLLL.AddForce(Vector2.left * 8, ForceMode2D.Impulse);
-        rigidLLLL.AddForce(Vector2.left * 8, ForceMode2D.Impulse);
-
-        //패턴카운트
-        curPatternCount++;
-        if (curPatternCount < 2)
-            Invoke("FireFoward", 2);
-        else
-            Invoke("Think", 2);
-    }
+    
     void FireShot()
     {
-        for (int index = 0; index < 5; index++)
+        for (int index = 0; index < 20; index++)
         {
             GameObject BossBullet = objectManager.MakeObj("BossBulletB");
             BossBullet.transform.position = transform.position;
@@ -133,14 +103,14 @@ public class HeadBoss : MonoBehaviour
         Vector2 dirVec = new Vector2(-1, Mathf.Cos(curPatternCount));
         rigid.AddForce(dirVec.normalized * 10, ForceMode2D.Impulse);
         curPatternCount++;
-        if (curPatternCount < 20)
+        if (curPatternCount < 50)
             Invoke("FireArc", 0.15f);
         else
             Invoke("Think", 2);
     }
     void FireAround()
     {
-        int roundNumA = 100;
+        int roundNumA = 30;
         for (int index = 0; index < roundNumA; index++)
         {
             GameObject BossBullet = objectManager.MakeObj("BossBulletB");
@@ -153,7 +123,7 @@ public class HeadBoss : MonoBehaviour
             rigid.AddForce(dirVec.normalized * 10, ForceMode2D.Impulse);
         }
         curPatternCount++;
-        if (curPatternCount < 20) { 
+        if (curPatternCount < 30) { 
             Invoke("FireAround", 0.1f);
         }
         else

@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
                 enemy2SpawnTimer = 0f;  // 타이머 초기화
             }
         }
-        else if (currentMinutes >= 1 && checkBoss == false)
+        if (currentMinutes >= 0 && checkBoss == false)
         {
             Instantiate(bossPrefab);
             checkBoss = true;
