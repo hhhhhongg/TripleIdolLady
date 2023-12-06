@@ -41,12 +41,42 @@ Visual Studio 2022(C#)
 5. 스코어는 따로 없으며 시간이 지날 수록 강한 에너미 등장
 6. 보스가 존재하며 처치 시 승리 !
 
-### 📌작동 예시
+### 📌게임의 정보
 #### ⌨🖱조작법
 WASD: 플레이어의 이동  
 Mouse point: 플레이어가 바라보는 방향  
 Mouse LBT: 공격
 
+#### 🤺플레이어 캐릭터
+플레이어 1의 이미지와 무기
+![Player1](https://github.com/hhhhhongg/TripleIdolLady/assets/149459020/469529f0-3cac-433e-b8ac-3f6cade99c72)
+![Player1Weapon](https://github.com/hhhhhongg/TripleIdolLady/assets/149459020/643449f2-07b1-4fac-b791-dcb4f6ad306e)
 
+플레이어 2의 이미지와 무기
+![Player2](https://github.com/hhhhhongg/TripleIdolLady/assets/149459020/beaf8263-1300-46bc-bd2b-c301b11dd22f)
+![Player2Weapon](https://github.com/hhhhhongg/TripleIdolLady/assets/149459020/348e86ca-6805-44cf-b884-d3b6bca1ae1a)
+![Player2Bullet](https://github.com/hhhhhongg/TripleIdolLady/assets/149459020/8dbc5316-568a-41eb-8f6f-8622a2b96244)
 
+플레이어 3의 이미지와 무기
+![Player3](https://github.com/hhhhhongg/TripleIdolLady/assets/149459020/d3811fc4-1100-4cf9-bb6c-a14dcce437c9)
+![Player3Weapon](https://github.com/hhhhhongg/TripleIdolLady/assets/149459020/bf8c94d6-60c1-4d37-89ea-488ee620e3f6)
 
+플레이어 4의 이미지와 무기
+![Player4](https://github.com/hhhhhongg/TripleIdolLady/assets/149459020/656e9fb3-fc5e-4278-b8f2-9f661e9ddb3d)
+![Player4Weapon](https://github.com/hhhhhongg/TripleIdolLady/assets/149459020/de2675b1-f3a3-4366-86e9-78fa72d553f1)
+
+플레이어 5의 이미지와 무기
+![Player5](https://github.com/hhhhhongg/TripleIdolLady/assets/149459020/0792844b-9d91-477b-abd6-15c60a94decf)
+![1대지 1](https://github.com/hhhhhongg/TripleIdolLady/assets/149459020/5850d9bb-f6cc-4d9a-b9a7-fd6ff6aa9226)
+
+플레이어의 각 무기는 팀원분들의 아이덴티티를 녹여내었다.
+
+#### 💥에너미
+
+에너미 1의 이미지
+![Enemy1](https://github.com/hhhhhongg/TripleIdolLady/assets/149459020/b836e855-f055-4b77-ae9c-5b8ada8465ff)
+
+에너미 2의 이미지
+![Enemy2](https://github.com/hhhhhongg/TripleIdolLady/assets/149459020/5b5084b6-4d1b-4b06-8d57-fa8f5230f983)
+
+보스는 발표 후 공개..!
