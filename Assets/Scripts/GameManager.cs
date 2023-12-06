@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -73,11 +74,17 @@ public class GameManager : MonoBehaviour
                 enemy2SpawnTimer = 0f;  // 타이머 초기화
             }
         }
-        if (currentMinutes >= 0 && checkBoss == false)
+        if (currentMinutes >= 1 && checkBoss == false)
         {
-            Instantiate(bossPrefab);
+            ChangePlayerPosition();
+            Invoke("InstantiateBoss", 3f);
             checkBoss = true;
         }
+    }
+
+    private void InstantiateBoss()
+    {
+        Instantiate(bossPrefab);
     }
 
     private void InstantiatePlayer()
@@ -110,7 +117,24 @@ public class GameManager : MonoBehaviour
         }
         Instantiate(playerPrefab);
     }
-    
+    // 플레이어의 위치를 변경하는 메서드
+    public void ChangePlayerPosition()
+    {
+        // "Player" 태그가 있는 GameObject를 찾습니다
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        // player GameObject가 존재하는지 확인합니다
+        if (player != null)
+        {
+            // player의 위치를 (0, 0, 현재 z)로 설정합니다
+            player.transform.position = new Vector3(0, 0, player.transform.position.z);
+        }
+        else
+        {
+            Debug.LogError("Player 객체를 찾을 수 없습니다!");
+        }
+    }
+
     public void UpdateLives(int lives)
     {
         livesText.text = $"{lives.ToString()}";
