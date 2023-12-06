@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     public GameObject bossPrefab;
     public GameObject BossBorderBullet;
 
+    public GameObject _heartPrefab;
+
     [Header("�����")]
     public GameObject LoseReTry;
     [SerializeField] private GameObject WinReTry;
@@ -31,6 +33,8 @@ public class GameManager : MonoBehaviour
     private float enemySpawnTimer = 0f;
     private float enemy2SpawnTimer = 0f;
     private float spawnInterval = 5f;  // n�� ���� (��: 5��)
+
+    
 
 
     private float startTime; // ���� ���� �ð�
@@ -57,7 +61,7 @@ public class GameManager : MonoBehaviour
         }
     }
     //------------------------------------------------------------------------
-    
+
     private void Start()
     {
         startTime = Time.time; // ���� ���۽ð� �ʱ�ȭ
@@ -73,9 +77,11 @@ public class GameManager : MonoBehaviour
         winReTryObj.SetActive(false);
         loseReTryObj.SetActive(false);
 
+        InvokeRepeating("InstantiateItem", 0.5f, 0.5f);
+
     }
 
-    
+
     void Update()
     {
         elapsedTime = Time.time - startTime;
@@ -84,7 +90,7 @@ public class GameManager : MonoBehaviour
         float seconds = Mathf.FloorToInt(elapsedTime % 60);
         currentMinutes = minutes;
         currentSeconds = seconds;
-    playTimeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        playTimeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
         if (minutes >= 0 && minutes < 1)
         {
@@ -117,14 +123,16 @@ public class GameManager : MonoBehaviour
         if (playerIsDead == true)
         {
             Lose();
-        }
-
+        }        
+    }
+    private void InstantiateItem()
+    {
+        Instantiate(_heartPrefab);
     }
 
     private void InstantiateBoss()
     {
         Instantiate(bossPrefab);
-        
     }
 
     private void InstantiatePlayer()
@@ -150,7 +158,7 @@ public class GameManager : MonoBehaviour
             case 5:
                 playerPrefab = playerPrefab5;
                 break;
-                // Debug.Log(playerPrefab);
+            // Debug.Log(playerPrefab);
             default:
                 Debug.LogError("�÷��̾� ���ÿ� �����Ͽ����ϴ�.");
                 return;
@@ -180,7 +188,7 @@ public class GameManager : MonoBehaviour
         livesText.text = $"{lives.ToString()}";
         if (lives <= 0)
         {
-            playerIsDead = true; 
+            playerIsDead = true;
         }
     }
 
