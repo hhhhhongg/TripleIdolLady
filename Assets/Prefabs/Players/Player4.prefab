@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27f6ac0012818b43a8f162b9de4d456, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cooltime: 0.4
+  _cooltime: 0.8
 --- !u!114 &415165826967427285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebab30d4aa0a0304ca629bded12a50dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cooltime: 0.4
+  _cooltime: 0.8
 --- !u!114 &9004146008498865117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f4006a7f01b9ee41a8f8373f7973854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
 --- !u!50 &3941128336538239722
 Rigidbody2D:
   serializedVersion: 4

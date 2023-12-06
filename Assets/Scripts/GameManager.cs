@@ -30,11 +30,11 @@ public class GameManager : MonoBehaviour
 
     private float enemySpawnTimer = 0f;
     private float enemy2SpawnTimer = 0f;
-    private float spawnInterval = 5f;  // n�� ���� (��: 5��)
+    private float spawnInterval = 2f; 
 
 
-    private float startTime; // ���� ���� �ð�
-    private float elapsedTime; // ��� �ð�
+    private float startTime; 
+    private float elapsedTime; 
 
     public float currentMinutes;
     public float currentSeconds;

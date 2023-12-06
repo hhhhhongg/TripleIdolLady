@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletCtrl : MonoBehaviour
 {
     [SerializeField] private float speed = 5.0f;
-    float lifeTime = 5.0f;
+    [SerializeField] private float lifeTime = 5.0f;
     
     void Start()
     {

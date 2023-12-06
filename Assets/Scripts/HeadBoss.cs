@@ -152,11 +152,11 @@ public class HeadBoss : MonoBehaviour
         }
         else if (collider.gameObject.tag == "Bullet2")
         {
-            TakeDamage(collider, 30);
+            TakeDamage(collider, 40);
         }
         else if (collider.gameObject.tag == "Bullet3")
         {
-            TakeDamage(collider, 40);
+            TakeDamage(collider, 120);
         }
     }
 

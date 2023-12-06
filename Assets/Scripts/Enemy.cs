@@ -62,11 +62,11 @@ public class Enemy : MonoBehaviour
         }
         else if (collider.gameObject.tag == "Bullet2")
         {
-            TakeDamage(collider, 3);
+            TakeDamage(collider, 4);
         }
         else if (collider.gameObject.tag == "Bullet3")
         {
-            TakeDamage(collider, 4);            
+            TakeDamage(collider, 12);            
         }
 
         if (collider.gameObject.tag == ("Player"))
