@@ -49,6 +49,9 @@ public class ObjectManager : MonoBehaviour
 
     public GameObject MakeObj(string type)
     {
+        BossBulletA = new GameObject[10];
+        BossBulletB = new GameObject[10];
+        Generate();
         switch (type)
         {
             case "HeadBoss":

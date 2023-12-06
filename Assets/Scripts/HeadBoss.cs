@@ -77,7 +77,7 @@ public class HeadBoss : MonoBehaviour
     void FireShot()
     {
         for (int index = 0; index < 20; index++)
-        {
+        {   
             GameObject BossBullet = objectManager.MakeObj("BossBulletB");
             BossBullet.transform.position = transform.position;
 
@@ -112,7 +112,7 @@ public class HeadBoss : MonoBehaviour
     {
         int roundNumA = 30;
         for (int index = 0; index < roundNumA; index++)
-        {
+        {     
             GameObject BossBullet = objectManager.MakeObj("BossBulletB");
             BossBullet.transform.position = transform.position;
             BossBullet.transform.rotation = Quaternion.identity;

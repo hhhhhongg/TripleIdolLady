@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public GameObject bossPrefab;
     public GameObject BossBorderBullet;
 
-    [Header("Àç½ÃÀÛ")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public GameObject LoseReTry;
     [SerializeField] private GameObject WinReTry;
     private GameObject winReTryObj;
@@ -30,13 +30,15 @@ public class GameManager : MonoBehaviour
 
     private float enemySpawnTimer = 0f;
     private float enemy2SpawnTimer = 0f;
-    private float spawnInterval = 5f;  // nÃÊ °£°Ý (¿¹: 5ÃÊ)
+    private float spawnInterval = 5f;  // nï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½: 5ï¿½ï¿½)
 
-    private float startTime; // °ÔÀÓ ½ÃÀÛ ½Ã°£
-    private float elapsedTime; // °æ°ú ½Ã°£
 
-    int currentMinutes;
-    int currentSeconds;
+    private float startTime; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+    private float elapsedTime; // ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+
+    public int currentMinutes;
+    public int currentSeconds;
+
 
     public bool BossIsDead = false;
     bool playerIsDead = false;
@@ -58,7 +60,7 @@ public class GameManager : MonoBehaviour
     
     private void Start()
     {
-        startTime = Time.time; // °ÔÀÓ ½ÃÀÛ½Ã°£ ÃÊ±âÈ­
+        startTime = Time.time; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û½Ã°ï¿½ ï¿½Ê±ï¿½È­
         InstantiatePlayer();
         Time.timeScale = 1f;
 
@@ -91,13 +93,13 @@ public class GameManager : MonoBehaviour
             if (enemySpawnTimer >= spawnInterval)
             {
                 Instantiate(enemyPrefab);
-                enemySpawnTimer = 0f;  // Å¸ÀÌ¸Ó ÃÊ±âÈ­
+                enemySpawnTimer = 0f;  // Å¸ï¿½Ì¸ï¿½ ï¿½Ê±ï¿½È­
             }
 
             if (seconds >= 30 && enemy2SpawnTimer >= spawnInterval)
             {
                 Instantiate(enemy2Prefab);
-                enemy2SpawnTimer = 0f;  // Å¸ÀÌ¸Ó ÃÊ±âÈ­
+                enemy2SpawnTimer = 0f;  // Å¸ï¿½Ì¸ï¿½ ï¿½Ê±ï¿½È­
             }
         }
         if (minutes >= 1 && checkBoss == false)
@@ -149,26 +151,26 @@ public class GameManager : MonoBehaviour
                 break;
                 // Debug.Log(playerPrefab);
             default:
-                Debug.LogError("ÇÃ·¹ÀÌ¾î ¼±ÅÃ¿¡ ½ÇÆÐÇÏ¿´½À´Ï´Ù.");
+                Debug.LogError("ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
                 return;
         }
         Instantiate(playerPrefab);
     }
-    // ÇÃ·¹ÀÌ¾îÀÇ À§Ä¡¸¦ º¯°æÇÏ´Â ¸Þ¼­µå
+    // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
     public void ChangePlayerPosition()
     {
-        // "Player" ÅÂ±×°¡ ÀÖ´Â GameObject¸¦ Ã£½À´Ï´Ù
+        // "Player" ï¿½Â±×°ï¿½ ï¿½Ö´ï¿½ GameObjectï¿½ï¿½ Ã£ï¿½ï¿½ï¿½Ï´ï¿½
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
-        // player GameObject°¡ Á¸ÀçÇÏ´ÂÁö È®ÀÎÇÕ´Ï´Ù
+        // player GameObjectï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Õ´Ï´ï¿½
         if (player != null)
         {
-            // playerÀÇ À§Ä¡¸¦ (0, 0, ÇöÀç z)·Î ¼³Á¤ÇÕ´Ï´Ù
+            // playerï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ (0, 0, ï¿½ï¿½ï¿½ï¿½ z)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½
             player.transform.position = new Vector3(0, 0, player.transform.position.z);
         }
         else
         {
-            Debug.LogError("Player °´Ã¼¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù!");
+            Debug.LogError("Player ï¿½ï¿½Ã¼ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½!");
         }
     }
 
@@ -185,15 +187,11 @@ public class GameManager : MonoBehaviour
     {
         winReTryObj.SetActive(true);
         Time.timeScale = 0.1f;
-        // °ÔÀÓ ¿À¹ö Ã³¸®
-        // ¿¹: È­¸é¿¡ "°ÔÀÓ ¿À¹ö" ¸Þ½ÃÁö¸¦ Ç¥½ÃÇÏ°Å³ª ´Ù¸¥ Ã³¸®¸¦ ¼öÇà
     }
     void Lose()
     {
         loseReTryObj.SetActive(true);
         Time.timeScale = 0.1f;
-        // °ÔÀÓ ¿À¹ö Ã³¸®
-        // ¿¹: È­¸é¿¡ "°ÔÀÓ ¿À¹ö" ¸Þ½ÃÁö¸¦ Ç¥½ÃÇÏ°Å³ª ´Ù¸¥ Ã³¸®¸¦ ¼öÇà
     }
 
 }
