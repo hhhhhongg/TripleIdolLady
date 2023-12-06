@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     int currentMinutes;
     int currentSeconds;
 
+    bool checkBoss = false;
+
     private void Awake()
     {
         if (instance == null)
@@ -71,16 +73,10 @@ public class GameManager : MonoBehaviour
                 enemy2SpawnTimer = 0f;  // 타이머 초기화
             }
         }
-        else if (currentMinutes >= 1)
+        else if (currentMinutes >= 1 && checkBoss == false)
         {
-            
-
-            if (currentSeconds == 0)
-            {
-                Destroy(enemyPrefab);
-                Destroy(enemy2Prefab);
-                Instantiate(bossPrefab);
-            }
+            Instantiate(bossPrefab);
+            checkBoss = true;
         }
     }
 
