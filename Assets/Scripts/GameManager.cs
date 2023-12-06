@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +22,12 @@ public class GameManager : MonoBehaviour
     public GameObject bossPrefab;
     public GameObject enemyTypeTime;
 
+    [Header("재시작")]
+    public GameObject LoseReTry;
+    [SerializeField] private GameObject WinReTry;
+    private GameObject winReTryObj;
+    private GameObject loseReTryObj;
+
     private float enemySpawnTimer = 0f;
     private float enemy2SpawnTimer = 0f;
     private float spawnInterval = 5f;  // n초 간격 (예: 5초)
@@ -28,6 +35,8 @@ public class GameManager : MonoBehaviour
     int currentMinutes;
     int currentSeconds;
 
+    public bool BossIsDead = false;
+    bool playerIsDead = false;
     bool checkBoss = false;
 
     private void Awake()
@@ -47,7 +56,17 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         InstantiatePlayer();
-        
+        Time.timeScale = 1f;
+
+        BossIsDead = false;
+        playerIsDead = false;
+
+        winReTryObj = Instantiate(WinReTry);
+        loseReTryObj = Instantiate(LoseReTry);
+
+        winReTryObj.SetActive(false);
+        loseReTryObj.SetActive(false);
+
     }
 
     
@@ -73,11 +92,26 @@ public class GameManager : MonoBehaviour
                 enemy2SpawnTimer = 0f;  // 타이머 초기화
             }
         }
-        if (currentMinutes >= 0 && checkBoss == false)
+        if (currentMinutes >= 1 && checkBoss == false)
         {
-            Instantiate(bossPrefab);
+            ChangePlayerPosition();
+            Invoke("InstantiateBoss", 3f);
             checkBoss = true;
         }
+        if (BossIsDead == true)
+        {
+            Win();
+        }
+        if (playerIsDead == true)
+        {
+            Lose();
+        }
+
+    }
+
+    private void InstantiateBoss()
+    {
+        Instantiate(bossPrefab);
     }
 
     private void InstantiatePlayer()
@@ -110,10 +144,46 @@ public class GameManager : MonoBehaviour
         }
         Instantiate(playerPrefab);
     }
-    
+    // 플레이어의 위치를 변경하는 메서드
+    public void ChangePlayerPosition()
+    {
+        // "Player" 태그가 있는 GameObject를 찾습니다
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        // player GameObject가 존재하는지 확인합니다
+        if (player != null)
+        {
+            // player의 위치를 (0, 0, 현재 z)로 설정합니다
+            player.transform.position = new Vector3(0, 0, player.transform.position.z);
+        }
+        else
+        {
+            Debug.LogError("Player 객체를 찾을 수 없습니다!");
+        }
+    }
+
     public void UpdateLives(int lives)
     {
         livesText.text = $"{lives.ToString()}";
+        if (lives <= 0)
+        {
+            playerIsDead = true; 
+        }
     }
-   
+
+    void Win()
+    {
+        winReTryObj.SetActive(true);
+        Time.timeScale = 0.1f;
+        // 게임 오버 처리
+        // 예: 화면에 "게임 오버" 메시지를 표시하거나 다른 처리를 수행
+    }
+    void Lose()
+    {
+        loseReTryObj.SetActive(true);
+        Time.timeScale = 0.1f;
+        // 게임 오버 처리
+        // 예: 화면에 "게임 오버" 메시지를 표시하거나 다른 처리를 수행
+    }
+
 }

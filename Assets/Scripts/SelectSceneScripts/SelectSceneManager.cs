@@ -11,6 +11,7 @@ public class SelectSceneManager : MonoBehaviour
 
     private void Awake()
     {
+        Time.timeScale = 1f;
         Instantiate(_menu);
         Instantiate(_spawn);
         Instantiate(_enemy);

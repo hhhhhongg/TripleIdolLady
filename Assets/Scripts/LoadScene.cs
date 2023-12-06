@@ -20,7 +20,7 @@ public class LoadScene : MonoBehaviour
         }
         else if (_sceneName == "MainScene") 
         {
-            Invoke("LodeSelect", 0.7f);
+            Invoke("LodeSelect",0);
         }
 
     }
