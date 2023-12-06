@@ -40,7 +40,6 @@ public class PlayerLives : MonoBehaviour
         if (currentLives <= 0)
         {
             GameManager.instance.UpdateLives(currentLives);
-            GameOver();
         }
         else
         {
@@ -48,14 +47,5 @@ public class PlayerLives : MonoBehaviour
         }
     }
 
-
-    void GameOver()
-    {
-       Time.timeScale = 0f;
-       // 게임 오버 처리
-       // 예: 화면에 "게임 오버" 메시지를 표시하거나 다른 처리를 수행
-    }
-
-    
 }
 

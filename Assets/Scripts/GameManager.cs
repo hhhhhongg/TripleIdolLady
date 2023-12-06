@@ -15,11 +15,11 @@ public class GameManager : MonoBehaviour
     public GameObject playerPrefab5;
 
     public Text livesText;
+    public Text playTimeText;
 
     public GameObject enemyPrefab;
     public GameObject enemy2Prefab;
     public GameObject bossPrefab;
-    public GameObject enemyTypeTime;
     public GameObject BossBorderBullet;
 
     [Header("재시작")]
@@ -31,6 +31,9 @@ public class GameManager : MonoBehaviour
     private float enemySpawnTimer = 0f;
     private float enemy2SpawnTimer = 0f;
     private float spawnInterval = 5f;  // n초 간격 (예: 5초)
+
+    private float startTime; // 게임 시작 시간
+    private float elapsedTime; // 경과 시간
 
     int currentMinutes;
     int currentSeconds;
@@ -55,6 +58,7 @@ public class GameManager : MonoBehaviour
     
     private void Start()
     {
+        startTime = Time.time; // 게임 시작시간 초기화
         InstantiatePlayer();
         Time.timeScale = 1f;
 
@@ -72,10 +76,14 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
-        currentMinutes = enemyTypeTime.GetComponent<PlayTime>().GetMinutes();
-        currentSeconds = enemyTypeTime.GetComponent<PlayTime>().GetSeconds();
+        elapsedTime = Time.time - startTime;
 
-        if (currentMinutes >= 0 && currentMinutes < 1)
+        float minutes = Mathf.FloorToInt(elapsedTime / 60);
+        float seconds = Mathf.FloorToInt(elapsedTime % 60);
+
+        playTimeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+        if (minutes >= 0 && minutes < 1)
         {
             enemySpawnTimer += Time.deltaTime;
             enemy2SpawnTimer += Time.deltaTime;
@@ -86,13 +94,13 @@ public class GameManager : MonoBehaviour
                 enemySpawnTimer = 0f;  // 타이머 초기화
             }
 
-            if (currentSeconds >= 30 && enemy2SpawnTimer >= spawnInterval)
+            if (seconds >= 30 && enemy2SpawnTimer >= spawnInterval)
             {
                 Instantiate(enemy2Prefab);
                 enemy2SpawnTimer = 0f;  // 타이머 초기화
             }
         }
-        if (currentMinutes >= 1 && checkBoss == false)
+        if (minutes >= 1 && checkBoss == false)
         {
             ChangePlayerPosition();
             Instantiate(BossBorderBullet);
