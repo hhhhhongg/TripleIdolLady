@@ -36,8 +36,8 @@ public class GameManager : MonoBehaviour
     private float startTime; // ���� ���� �ð�
     private float elapsedTime; // ��� �ð�
 
-    public int currentMinutes;
-    public int currentSeconds;
+    public float currentMinutes;
+    public float currentSeconds;
 
 
     public bool BossIsDead = false;
@@ -82,8 +82,9 @@ public class GameManager : MonoBehaviour
 
         float minutes = Mathf.FloorToInt(elapsedTime / 60);
         float seconds = Mathf.FloorToInt(elapsedTime % 60);
-
-        playTimeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        currentMinutes = minutes;
+        currentSeconds = seconds;
+    playTimeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
 
         if (minutes >= 0 && minutes < 1)
         {
