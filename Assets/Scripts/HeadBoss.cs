@@ -13,7 +13,6 @@ public class HeadBoss : MonoBehaviour
 
     public int patternIndex;
     public int curPatternCount;
-    public int[] maxPatternCount;
 
     public GameObject player;
     public ObjectManager objectManager;
