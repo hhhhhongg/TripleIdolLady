@@ -23,6 +23,15 @@ public class PlayerLives : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == ("BossBullet"))
+        {
+            TakeDamage();
+            Destroy(collider.gameObject);
+        }
+    }
+
     void TakeDamage()
     {
         currentLives--;
