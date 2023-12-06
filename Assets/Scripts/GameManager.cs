@@ -32,8 +32,8 @@ public class GameManager : MonoBehaviour
     private float enemy2SpawnTimer = 0f;
     private float spawnInterval = 5f;  // n초 간격 (예: 5초)
 
-    int currentMinutes;
-    int currentSeconds;
+    public int currentMinutes;
+    public int currentSeconds;
 
     public bool BossIsDead = false;
     bool playerIsDead = false;
@@ -177,15 +177,11 @@ public class GameManager : MonoBehaviour
     {
         winReTryObj.SetActive(true);
         Time.timeScale = 0.1f;
-        // 게임 오버 처리
-        // 예: 화면에 "게임 오버" 메시지를 표시하거나 다른 처리를 수행
     }
     void Lose()
     {
         loseReTryObj.SetActive(true);
         Time.timeScale = 0.1f;
-        // 게임 오버 처리
-        // 예: 화면에 "게임 오버" 메시지를 표시하거나 다른 처리를 수행
     }
 
 }
