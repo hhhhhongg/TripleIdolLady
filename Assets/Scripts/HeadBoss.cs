@@ -131,7 +131,7 @@ public class HeadBoss : MonoBehaviour
 
         Rigidbody2D rigid = BossBullet.GetComponent<Rigidbody2D>();
         Vector2 dirVec = new Vector2(-1, Mathf.Cos(curPatternCount));
-        rigid.AddForce(dirVec.normalized * 5, ForceMode2D.Impulse);
+        rigid.AddForce(dirVec.normalized * 10, ForceMode2D.Impulse);
         curPatternCount++;
         if (curPatternCount < 20)
             Invoke("FireArc", 0.15f);
@@ -140,6 +140,18 @@ public class HeadBoss : MonoBehaviour
     }
     void FireAround()
     {
+        int roundNumA = 100;
+        for (int index = 0; index < roundNumA; index++)
+        {
+            GameObject BossBullet = objectManager.MakeObj("BossBulletB");
+            BossBullet.transform.position = transform.position;
+            BossBullet.transform.rotation = Quaternion.identity;
+
+            Rigidbody2D rigid = BossBullet.GetComponent<Rigidbody2D>();
+            Vector2 dirVec = new Vector2(Mathf.Cos(Mathf.PI * 2 * index / roundNumA)
+                                        ,Mathf.Sin(Mathf.PI * 2 * index / roundNumA));
+            rigid.AddForce(dirVec.normalized * 10, ForceMode2D.Impulse);
+        }
         curPatternCount++;
         if (curPatternCount < 20) { 
             Invoke("FireAround", 0.1f);
