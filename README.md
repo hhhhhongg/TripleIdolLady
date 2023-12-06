@@ -47,7 +47,7 @@ WASD: 플레이어의 이동
 Mouse point: 플레이어가 바라보는 방향  
 Mouse LBT: 공격
 
-#### 🤺플레이어 캐릭터
+####🤺플레이어 캐릭터
 플레이어 1의 이미지와 무기
 ![Player1](https://github.com/hhhhhongg/TripleIdolLady/assets/149459020/469529f0-3cac-433e-b8ac-3f6cade99c72)
 ![Player1Weapon](https://github.com/hhhhhongg/TripleIdolLady/assets/149459020/643449f2-07b1-4fac-b791-dcb4f6ad306e)
