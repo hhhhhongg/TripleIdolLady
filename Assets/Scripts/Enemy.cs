@@ -71,7 +71,6 @@ public class Enemy : MonoBehaviour
 
         if (collider.gameObject.tag == ("Player"))
         {
-            // 플레이어에게 데미지 입히기
 
             // 적 오브젝트 파괴
             Destroy(gameObject);

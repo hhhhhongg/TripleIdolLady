@@ -5,8 +5,8 @@ using UnityEngine;
 public class HeadBoss : MonoBehaviour
 {
     public string enemyName;
-    public int health;
-    private int _damage = 0;
+    public float health;
+    private float _damage = 0;
 
     public float maxShotDelay;
     public float curShotDelay;
@@ -148,34 +148,33 @@ public class HeadBoss : MonoBehaviour
     {
         if (collider.gameObject.tag == "Bullet1")
         {
-            TakeDamage(collider, 2);
+            TakeDamage(collider, 20);
         }
         else if (collider.gameObject.tag == "Bullet2")
         {
-            TakeDamage(collider, 3);
+            TakeDamage(collider, 30);
         }
         else if (collider.gameObject.tag == "Bullet3")
         {
-            TakeDamage(collider, 4);
+            TakeDamage(collider, 40);
         }
     }
 
 
-    private void TakeDamage(Collider2D collider, int _bulletDamage)
+    private void TakeDamage(Collider2D collider, float _bulletDamage)
     {
         if (_damage < health)
         {
             _damage += _bulletDamage;
-            health -= _damage;
+            float num = _damage / health;
+            Destroy(collider.gameObject);
+            gameObject.transform.Find("BossHpBar/Canvas/Front").transform.localScale = new Vector3(num, 1.0f, 1.0f);
+            if (num == 1)
+            {
+                Destroy(gameObject);
+            }
         }
-        else
-        {
-            health = 0;
-            Die();
-        }
+        
     }
-    private void Die()
-    {
-        gameObject.SetActive(false);
-    }
+    
 }
