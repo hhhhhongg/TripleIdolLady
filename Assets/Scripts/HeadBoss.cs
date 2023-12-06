@@ -172,6 +172,7 @@ public class HeadBoss : MonoBehaviour
             if (num == 1)
             {
                 Destroy(gameObject);
+                Die();
             }
         }
         
