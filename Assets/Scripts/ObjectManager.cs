@@ -20,8 +20,8 @@ public class ObjectManager : MonoBehaviour
     {
         HeadBoss = new GameObject[1];
 
-        BossBulletA = new GameObject[100];
-        BossBulletB = new GameObject[100];
+        BossBulletA = new GameObject[5000];
+        BossBulletB = new GameObject[5000];
         Generate();
     }
 
