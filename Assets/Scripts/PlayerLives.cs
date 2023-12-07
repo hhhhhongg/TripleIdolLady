@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerLives : MonoBehaviour
 {
-    public int maxLives = 3;  // ÃÖ´ë ¸ñ¼û °³¼ö
-    private int currentLives;  // ÇöÀç ¸ñ¼û °³¼ö
+    public int maxLives = 3;  // ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    private int currentLives;  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     void Start()
     {
@@ -21,6 +21,12 @@ public class PlayerLives : MonoBehaviour
             TakeDamage();
             Destroy(collider.gameObject);
         }
+
+        if (collider.gameObject.tag == "HeartItem")
+        {
+            GetHeartItem();
+            Destroy(collider.gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -30,13 +36,13 @@ public class PlayerLives : MonoBehaviour
             TakeDamage();
             Destroy(collider.gameObject);
         }
-    }
+    }    
 
     void TakeDamage()
     {
         currentLives--;
 
-        // ¸ñ¼ûÀÌ 0ÀÌ µÇ¸é °ÔÀÓ ¿À¹ö Ã³¸®
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ 0ï¿½ï¿½ ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
         if (currentLives <= 0)
         {
             GameManager.instance.UpdateLives(currentLives);
@@ -46,6 +52,10 @@ public class PlayerLives : MonoBehaviour
             GameManager.instance.UpdateLives(currentLives);
         }
     }
-
+    void GetHeartItem()
+    {
+        currentLives++;
+        GameManager.instance.UpdateLives(currentLives);
+    }
 }
 

@@ -11,6 +11,7 @@ TagManager:
   - Bullet1
   - Bullet2
   - Bullet3
+  - HeartItem
   layers:
   - Default
   - TransparentFX
