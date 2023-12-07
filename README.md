@@ -34,8 +34,8 @@ Unity Engine 2022.3.2f LTS
 Visual Studio 2022(C#)
 
 #### 💾깃허브 사용 방식
-Clone 방식으로 진행하였습니다.
-Check Branch에 각자 작업물들을 merge하면서 진행하였습니다.
+Clone 방식으로 진행하였습니다.  
+Check Branch에 각자 작업물들을 merge하면서 진행하였습니다.  
 최종 작업물을 main에 merge하였습니다.
 
 #### ✅게임의 컨셉
