@@ -1,7 +1,7 @@
-## 📖Chapter 3-2 Unity 게임개발 입문 프로젝트 
-#### 👨‍👧‍👧1조 천홍, 정선교, 박재열, 이규성, 김종욱
+# 📖Chapter 3-2 Unity 게임개발 입문 프로젝트 
+### 👨‍👧‍👧1조 천홍, 정선교, 박재열, 이규성, 김종욱
 
-### 📌선택한 게임
+## 📌선택한 게임
 
 ![닷지](https://github.com/hhhhhongg/TripleIdolLady/assets/149459020/0b283a36-df08-4731-9c39-31a1df475617)
 - **필수 구현 사항**
@@ -20,7 +20,7 @@
 
 일반적인 닷지는 사방에서 날아오는 탄알을 피하면서 버틸 뿐인 게임이지만 구현 사항을 읽어보니 그냥 닷지가 아닌 탄막 게임을 구현해야 한다.
 
-#### ✅구현에 성공한 사항들
+### ✅구현에 성공한 사항들
 게임 화면  
 캐릭터  
 총알과 공격  
@@ -29,30 +29,35 @@
 게임 난이도 조절  
 사운드 효과
 
-#### 💾사용된 프로그램
+-----
+
+### 💾사용된 프로그램
 Unity Engine 2022.3.2f LTS  
 Visual Studio 2022(C#)
 
-#### 💾깃허브 사용 방식
+### 💾깃허브 사용 방식
 Clone 방식으로 진행하였습니다.  
 Check Branch에 각자 작업물들을 merge하면서 진행하였습니다.  
 최종 작업물을 main에 merge하였습니다.
 
-#### ✅게임의 컨셉
+-----
+
+### ✅게임의 컨셉
 1. 배경은 우리가 공부하는 ZEP
 2. TopDownView
 3. 플레이어는 팀원의 ZEP캐릭터
 4. 에너미는 ZEP캐릭터를 이용하여 만든 좀비
 5. 스코어는 따로 없으며 시간이 지날 수록 강한 에너미 등장
 6. 보스가 존재하며 처치 시 승리 !
-
-### 📌게임의 정보
-#### ⌨🖱조작법
+## 📌게임의 정보
+### ⌨🖱조작법
 WASD: 플레이어의 이동  
 Mouse point: 플레이어가 바라보는 방향  
 Mouse LBT: 공격
 
-#### 🤺플레이어 캐릭터
+-----
+
+### 🤺플레이어 캐릭터
 플레이어 1의 이미지와 무기
 ![Player1](https://github.com/hhhhhongg/TripleIdolLady/assets/149459020/469529f0-3cac-433e-b8ac-3f6cade99c72)
 ![Player1Weapon](https://github.com/hhhhhongg/TripleIdolLady/assets/149459020/643449f2-07b1-4fac-b791-dcb4f6ad306e)
@@ -76,7 +81,15 @@ Mouse LBT: 공격
 
 플레이어의 각 무기는 팀원분들의 아이덴티티를 녹여내었다.
 
-#### 💥에너미
+-----
+
+### 🗃아이템
+체력 회복 아이템
+![Heart](https://github.com/hhhhhongg/TripleIdolLady/assets/149459020/a24cdd84-ac5c-4f22-b0fb-2db14fa1bcd0)
+
+-----
+
+### 💥에너미
 
 에너미 1의 이미지
 ![Enemy1](https://github.com/hhhhhongg/TripleIdolLady/assets/149459020/b836e855-f055-4b77-ae9c-5b8ada8465ff)
