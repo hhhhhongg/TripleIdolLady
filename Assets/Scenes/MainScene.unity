@@ -734,7 +734,7 @@ MonoBehaviour:
   bossPrefab: {fileID: 5915395687670854920, guid: 5c76f8a8402c62b4b94c39db05a579d7, type: 3}
   BossBorderBullet: {fileID: 6702587518742970547, guid: 0309b7f7e64a60b4c8d1a2dbeec93bce, type: 3}
   _heartPrefab: {fileID: 7428695602023004017, guid: 6c0472434fd4ef44aa154628fd299d8c, type: 3}
-  _heartRespwanTime: 10
+  _heartRespwanTime: 30
   LoseReTry: {fileID: 6526638978726933176, guid: 6399ef30062c9d546bbcdc86afcf433c, type: 3}
   WinReTry: {fileID: 2881283986897880313, guid: e398808c9c6221143b7a477bc7827746, type: 3}
   currentMinutes: 0
