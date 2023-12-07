@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject _heartPrefab;
 
+    [SerializeField] private float _heartRespwanTime = 10;
+
     [Header("�����")]
     public GameObject LoseReTry;
     [SerializeField] private GameObject WinReTry;
@@ -77,7 +79,7 @@ public class GameManager : MonoBehaviour
         winReTryObj.SetActive(false);
         loseReTryObj.SetActive(false);
 
-        InvokeRepeating("InstantiateItem", 0.5f, 0.5f);
+        InvokeRepeating("InstantiateItem", 10f, _heartRespwanTime);
 
     }
 

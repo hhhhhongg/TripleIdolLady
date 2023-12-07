@@ -5,13 +5,11 @@ using UnityEngine;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Item : MonoBehaviour
-{
-    // ÇÃ·¹ÀÌ¾î¸¦ ±âÁØÀ¸·Î »ý¼º
-    // ÇÃ·¹ÀÌ¾î¿ÍÀÇ Ãæµ¹ Ã³¸®
-    // ÇÃ·¹ÀÌ¾î¿Í Ãæµ¹ÇÏ¸é ¸ñ¼û¿¡+1, ÇÏÆ®´Â ÆÄ±«
+{    
+    // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ Ã³ï¿½ï¿½
+    // ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ ï¿½æµ¹ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½+1, ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ä±ï¿½
 
-
-    private Transform _player;    
+    private Transform _player;
 
     void Start()
     {
@@ -19,29 +17,24 @@ public class Item : MonoBehaviour
         SpawnOutsideScreen();
         
     }    
-    void Update()
-    {
-        
-    }    
-    
     void SpawnOutsideScreen()
     {
         Vector2 _playerPosition = Camera.main.ScreenToWorldPoint(_player.position);
 
-        float screenWidth = Screen.width * 0.1f;
-        float screenHeight = Screen.height * 0.1f;
+        float screenWidth = Screen.width ;
+        float screenHeight = Screen.height;
 
         float randomDirection = Random.Range(0f, 360f);
 
-        
-        float x = Mathf.Cos(randomDirection * Mathf.Deg2Rad) * screenWidth;
-        float y = Mathf.Sin(randomDirection * Mathf.Deg2Rad) * screenHeight;
+        float radius = Mathf.Sqrt(Mathf.Pow(screenWidth * 0.5f, 2) + Mathf.Pow(screenHeight * 0.5f, 2)) * 0.5f;
+        float x = Mathf.Cos(randomDirection * Mathf.Deg2Rad) * radius + screenWidth * 0.5f;
+        float y = Mathf.Sin(randomDirection * Mathf.Deg2Rad) * radius + screenHeight * 0.5f;
 
         Vector2 spawnPosition = Camera.main.ScreenToWorldPoint(new Vector2(x, y));
 
-        Vector2 newAim = spawnPosition - _playerPosition;
+        Vector2 newAim = spawnPosition;
 
         transform.position = new Vector2(newAim.x, newAim.y);
-        Debug.Log(newAim);
+        
     }
 }
